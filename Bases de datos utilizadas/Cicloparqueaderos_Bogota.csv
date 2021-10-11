@@ -1,0 +1,205 @@
+﻿OBJECTID,Identificador,Nombre,Horario,Dirección,Localidad,Número de cupos,Tipología,Tipo de sello,coord_x,coord_y
+436,8,City Parking Park 85,24 h,CL 85 16 07,Chapinero,60,Público,Oro,"-74,0562668913873","4,670048819277629"
+437,9,City Parking Body 83,L-J 04:00 - 24:00  V 04:00 - 22:00 S 06:00 - 20:00 D-F 06:00 - 18:00,KR 19 B  83  05,Chapinero,36,Público,Oro,"-74,05932550041952","4,670080864138611"
+438,10,City Parking Torre Zimma,L-V 06:00 - 21:00 S 07:00 - 16:00,KR 15 88  64,Chapinero,60,Público,Oro,"-74,0532443173744","4,674005939813128"
+439,11,City Parking BodyTech Plaza,L-V 04:00 - 22:00  S 06:00 - 21:00,AK 19 102 31,Usaquén,30,Público,Oro,"-74,05190221727196","4,6878941427560665"
+440,12,City Parking World Business Center,L-V 05:30 - 22:00  S 06:00 - 22:00 D 06:00 - 18:00 F 10:00 - 18:00,AK 86  51 66,Engativá,20,Público,Oro,"-74,1172728307031","4,68092347402084"
+441,13,City Parking Buro 26,24 h,AC 26 102 20,Fontibón,41,Público,Oro,"-74,13021154511634","4,689494724444063"
+442,14,City Parking Cargo Port,24 h,AC 26 106 39,Fontibón,83,Público,Oro,"-74,1358249996475","4,692468000429646"
+443,15,Porvenir,L-V 07:00 - 20:00,KR 13 26 A 65,Santa Fé,36,Privado,Oro,"-74,07051851694447","4,615145928658937"
+444,16,Universidad del Rosario - Sede Quinta de Mutis,L-V 07:00 - 20:00 S 07:00 - 14:00,KR 24 63 C 69,Barrios Unidos,200,Privado,Oro,"-74,07205770472532","4,6540867682197895"
+445,17,Microsoft,L-V 07:00 - 20:00,CL 92 11 51,Chapinero,25,Privado,Oro,"-74,0483767960074","4,673600124267369"
+446,18,Universidad del Rosario,L-V 07:00 - 20:00,CL 12C 6 25,La Candelaria,185,Privado,Oro,"-74,07311305180932","4,600435750160276"
+447,19,Bavaria,L-V 07:00 - 22:00,KR 53A 127 35,Suba,99,Privado,Oro,"-74,06170306968536","4,70885761475366"
+448,20,Universidad de los Andes,L-V 07:00 - 22:00,KR 1 18 A 12,La Candelaria,440,Privado,Oro,"-74,06639510695824","4,601444779843868"
+449,21,Parking International Hotel Atton,L-V 07:00 - 20:00,CL 93 12 41,Chapinero,16,Público,Oro,"-74,04928574824281","4,67515964227837"
+450,22,City Parking Universidad Catolica de Colombia,L-V 05:30 - 23:00 S 06:00 - 18:00,AK 13 47 30,Chapinero,44,Público,Oro,"-74,0659424656495","4,634479563787151"
+451,23,Parking International Claustro de la EnseÃ±anza,L-V 06:00 - 22:00 S 06:00 - 18:00,CL 70A 8 00,Chapinero,40,Público,Oro,"-74,057372207259","4,654351111381207"
+452,24,Torre Colpatria,L-V 05:30 - 22:00 S 06:00 - 14:00,KR 7  24 89,Santa Fé,165,Privado,Oro,"-74,07006345287942","4,610986054954376"
+454,26,City Parking Centro Comercial SHOW PLACE,L-V 04:00 - 24:00  S 06:00 - 23:00 D-F 06:00 - 22:00,AC 147 7 70,Usaquén,22,Público,Plata,"-74,02731653078976","4,723300355103294"
+456,55,Centro Comercial Tintal,24h,AK 86 6 37,Kennedy,140,Público,Oro,"-74,15541178435575","4,641769220804194"
+457,56,Centro Comercial Plaza de las Americas,24h,KR 71D 6 94 SUR,Kennedy,320,Público,Oro,"-74,13720634355147","4,618442851668561"
+458,57,Centro Comercial Centro Mayor,L-D 06:00 - 22:00,CL 38A SUR 34D 50,Antonio Nariño,300,Público,Oro,"-74,12315707788508","4,591668802317803"
+459,58,"Edifico Av, Chile","L-S 06,00 - 22:30  D 06:00 - 16:00",CL 72 71 21,Engativá,200,Público,Oro,"-74,09428796092185","4,686495214801907"
+460,59,Universidad Central (Sede Centro),"L-S 06,00 - 22:30  D 06:00 - 16:00",CL 21 4 40,Santa Fé,126,Privado,Oro,"-74,06865732266014","4,6056090431921834"
+461,60,Tribunales - Rama Judicial,L-V 07:00 - 20:00,KR 57 43 91,Teusaquillo,60,Privado,Oro,"-74,09393274729557","4,646599417079067"
+463,62,Portal Américas,L-D 05:00 - 24:00,Troncal Americas,Kennedy,785,Transmilenio,Oro,"-74,17294200018851","4,6290539997573"
+464,63,Estación Transversal 86,L-D 05:00 - 24:00,Troncal Americas,Kennedy,84,Transmilenio,Oro,"-74,1529530002017","4,635052999559043"
+465,64,Estación Banderas,L-D 05:00 - 24:00,Troncal Americas,Kennedy,101,Transmilenio,Oro,"-74,14554599991698","4,6312559997809535"
+466,65,Estación Mundo Aventura,L-D 05:00 - 24:00,Troncal Americas,Kennedy,32,Transmilenio,Oro,"-74,13522399977298","4,630139999815538"
+467,66,Estación Marsella,L-D 05:00 - 24:00,Troncal Americas,Kennedy,32,Transmilenio,Oro,"-74,12860300020901","4,62948799992284"
+468,67,Estación Pradera,L-D 05:00 - 24:00,Troncal Americas,Puente Aranda,32,Transmilenio,Oro,"-74,11968500037877","4,628609000408773"
+469,68,Portal del Sur,L-D 05:00 - 24:00,Troncal NQS Sur,Bosa,409,Transmilenio,Oro,"-74,1693510001116","4,596727000105764"
+470,69,Estación General Santander,L-D 05:00 - 24:00,Troncal NQS Sur,Puente Aranda,48,Transmilenio,Oro,"-74,12829699988727","4,593475999732891"
+471,70,Estación Ricaurte,L-D 05:00 - 24:00,Troncal NQS Central,Los Mártires,165,Transmilenio,Oro,"-74,09029200031486","4,612809000068794"
+472,71,Estación Intermedia Bicentenario,L-D 05:00 - 24:00,Troncal AV 10,Santa Fé,116,Transmilenio,Oro,"-74,08211500010121","4,593585000406162"
+474,73,Portal Eldorado,L-D 05:00 - 24:00,Troncal Calle 26,Engativá,532,Transmilenio,Oro,"-74,12062699983683","4,680425999659666"
+475,74,"Estación Av, Rojas",L-D 05:00 - 24:00,Troncal Calle 26,Fontibón,104,Transmilenio,Oro,"-74,10890700012516","4,662150999886342"
+476,75,Estación Quinta Paredes,L-D 05:00 - 24:00,Troncal Calle 26,Teusaquillo,48,Transmilenio,Oro,"-74,09252599993368","4,636561999962388"
+477,76,Portal 80,L-D 05:00 - 24:00,Troncal Calle 80,Engativá,353,Transmilenio,Oro,"-74,11041299964783","4,709575000341412"
+478,77,Tribunales - Cundinamarca,L-V 07:00 - 20:00,AC 24 53 28,Teusaquillo,93,Privado,Oro,"-74,09912688172683","4,64029015571637"
+479,78,Centro Comercial Parque La Colina,L-D 08:00 - 22:00,KR 72 145 2,Suba,260,Público,Oro,"-74,06683355398717","4,734265508430418"
+480,79,Corporación de la industria aeronautica Colombiana,L-V 07:00 - 20:00,AC 26 103 08,Fontibón,48,Privado,Oro,"-74,13109397099971","4,689224874955945"
+481,80,Corporación Colombiana de Logística,L-V 07:00 - 20:00,AC 22 68B 75,Fontibón,35,Privado,Oro,"-74,1132889003344","4,647779184632174"
+482,81,Novartis,L-S 07:00 - 20:00,CL 93 B 16 31,Chapinero,70,Privado,Oro,"-74,0520058981271","4,679073783593738"
+483,83,Parqueadero Palermo,L-V 06:00 - 22:00,KR 24 45 C   20,Teusaquillo,12,Público,Plata,"-74,07487402734563","4,636152909920018"
+484,84,Parqueadero Los Magníficos,L-V 07:00 - 20:00,KR 26 51 63,Teusaquillo,12,Público,Plata,"-74,07560838392071","4,6406004177536575"
+485,85,Famar,L-D 06:00 - 20:00,CL 14A 18 74 SUR,Antonio Nariño,12,Público,Plata,"-74,09961562902178","4,587385409995607"
+486,27,Centro Comercial METRO 127,24 h,CL 127 15A 03,Usaquén,22,Público,Plata,"-74,04366608725135","4,703997235061507"
+487,28,City Parking Cll 109,L 06:00 - 23:00 M-J 06:00 - 21:00 V 06:00 - 22:00 S 06:00 - 21:00 D-F 09:00 - 17:00,AK 19 109 50,Usaquén,14,Público,Plata,"-74,05032569371126","4,695633354912272"
+488,29,PARQUEADERO BODYTECH,24 h,AK 7 61 47,Chapinero,12,Público,Plata,"-74,06053069727267","4,646694550266704"
+489,30,City Parking Universidad Manuela Beltran,L-V 06:00 - 22:30 S 06:00 - 19:00,AV Circunvalar 60 00,Chapinero,20,Público,Plata,"-74,05745123205452","4,643686616765787"
+490,31,City Parking FONADE,L-V 05:30 - 22:00 S 07:00 - 18:00,KR 13 25 31,Santa Fé,20,Público,Plata,"-74,07167337939565","4,612600012377304"
+491,32,"City Parking Cll, 82",L-M 06:00 - 23:00 J-S 06:00 - 03:00 D-F 08:00 - 17:00,CL 82 10 69,Chapinero,18,Público,Plata,"-74,05271159305474","4,665461698409152"
+492,33,"City Parking Cr, 11A",L-M 06:00 - 23:00 J-S 06:00 - 03:00 D-F 08:00 - 17:00,KR 11A 88 49,Chapinero,15,Público,Plata,"-74,04990240215949","4,6719586710956005"
+493,34,Bazaar Alsacia,24 h,Cl 12B 71 D 61,Kennedy,24,Público,Plata,"-74,12964472973162","4,645338665426616"
+494,35,City Parking BODYTECH KENNEDY,L-J 05:00 - 23:00 V 05:00 - 21:00 S 07:00 - 18:00 D-F 07:00 - 16:00,TV 78J 41F 05 SUR,Kennedy,20,Público,Plata,"-74,15948311361508","4,618480907893095"
+495,36,City Parking BODYTECH SULTANA,L-J 07:00 - 18:00 V 05:00 - 21:00 S 07:00 - 18:00 D-F 07:00 - 16:00,CL 12 SUR 31 37,Antonio Nariño,26,Público,Plata,"-74,10834871783733","4,5979028920157505"
+497,38,City Parking BODYTECH COLINA,L-J 04:00 - 24:00 V 04:00 - 22:00 S-D-F 06:00 - 22:00,CL 138 58 74,Suba,15,Público,Plata,"-74,06608531035609","4,728945884941091"
+498,39,City Parking BODYTECH NORMANDIA,L-J 05:00 - 23:00 V 05:00 - 21:0 S 07:00 - 18:00 D-F 07:00 - 16:00,AK 72 49 15,Engativá,20,Público,Plata,"-74,11012474374789","4,66830182911977"
+499,40,Centro Comercial Iserra 100,L-D 06:00 - 22:00,TV 55 98 A 66,Barrios Unidos,197,Público,Plata,"-74,06459721785028","4,687820715682539"
+500,41,Centro Comercial Fiesta Fontibon,L-D 06:00 - 20:00,KR 100 18 59,Fontibón,22,Público,Plata,"-74,14426660761123","4,674445683554132"
+501,42,City Parking Homi,24 h,AK 14 1 13,Los Mártires,38,Público,Plata,"-74,0883407741778","4,592784707816436"
+502,43,City Parking Cll 95,L-M 06:00 - 23:00 J-S 06:00 - 03:00 D-F 08:00 - 17:00,CL 95  11 A 67,Chapinero,20,Público,Plata,"-74,04728594391014","4,679507239000404"
+503,44,Sura,L-V 07:00 - 20:00,KR 11 93 46,Chapinero,30,Privado,Plata,"-74,04727550458821","4,674757301269295"
+505,46,Instituto Nacional de Salud,L-V 07:00 - 20:00,CL 26 51 20,Teusaquillo,45,Privado,Oro,"-74,09494798280548","4,641435165735546"
+507,48,Pontificia Universidad Javeriana,"L-V 06,00 - 22:00  S-D 06:00 - 12:00",KR 7  40 62,Chapinero,382,Privado,Oro,"-74,06313522679338","4,629054805603853"
+508,49,Centro Comercial Palatino,L-D 09:00 - 02:00,AK 7 138 33,Usaquén,50,Público,Oro,"-74,02901682602695","4,715295647066419"
+509,50,Centro Comercial Paseo San Rafael,L-D 07:00 - 01:00,CL 134 55 30,Suba,100,Público,Oro,"-74,0625083931679","4,722875480304089"
+510,51,Centro Comercial Andino,D-J 06:00 - 01:00  V-S 06:00 - 03:00,KR 12 82 50,Chapinero,400,Público,Oro,"-74,05392228130924","4,66660406205201"
+511,52,Centro Comercial Titan,L-D 05:00 - 03:00,AK 72 80 94,Engativá,250,Público,Plata,"-74,08661552643697","4,695749136915693"
+513,86,"Parking Osorio's S,A,S,",L-S 07:00 - 20:00,KR 17 15 21 SUR,Antonio Nariño,12,Público,Plata,"-74,09935390755871","4,585844390769205"
+514,87,Auto servicio Rincon,L-V 07:00 - 20:00,CL 22A 7 39 SUR,San Cristóbal,15,Público,Plata,"-74,09298196141569","4,572867403874421"
+515,88,Rincón de Galicia Michel,L-V 07:00 - 20:00,TV 73J 62H 51 SUR,Ciudad Bolívar,12,Público,Plata,"-74,17213654914521","4,587493681817742"
+516,89,El Palacio del Centro,L-S 07:00 - 20:00,KR 8 11 45,La Candelaria,12,Público,Plata,"-74,07602402541951","4,599239566781702"
+517,90,Parqueaderos del Futuro,L-V 07:00 - 22:00,KR 7 24 70,Santa Fé,20,Público,Plata,"-74,06999432302673","4,610405626263824"
+518,91,Parking Motos San Diego,L-V 07:00 - 20:00,CL 24 12 65,Santa Fé,23,Público,Plata,"-74,07229909821184","4,611131541705792"
+519,92,Parqueadero Tequendama,L-V 07:00 - 20:00,KR 1 22   50,Santa Fé,12,Público,Plata,"-74,0651278517903","4,605008339697764"
+520,93,Parkimotos de la 22,L-S 07:00 - 20:00,KR 5 22 66,Santa Fé,12,Público,Plata,"-74,06882901676208","4,607582699085775"
+521,94,Parqueadero Park Castellena 104,L-S 06:30 - 21:30 D-F 09:00 - 21:00,AK 19 104 49,Usaquén,13,Público,Plata,"-74,0513395017982","4,691211327848464"
+522,95,Parking Guard,L-V 07:00 - 20:00,CL 109 17A 33,Usaquén,13,Público,Plata,"-74,04834935606874","4,69408599510925"
+523,96,Centro Comercial Futuro 140 - Eco Parq,L-V 07:00 - 20:00,KR 7 24 70,Santa Fé,12,Público,Plata,"-74,06999432302673","4,610405626263824"
+524,97,"Comercial Papelera S,A, Calle 140",L-V 07:00 - 20:00,CL 140 16 32,Usaquén,22,Público,Plata,"-74,04263996416019","4,721995416209406"
+525,98,"Fast Parking LTDA,",L-V 07:00 - 20:00,CL 23 14 24,Los Mártires,12,Público,Plata,"-74,07502861303298","4,611927465571858"
+526,99,Parqueadero Parroquia Las Mercedes,L-S 07:00 - 20:00,CL 12 B 27 64,Los Mártires,12,Público,Plata,"-74,09055355828457","4,611716565031715"
+527,100,Centro Comercial Sabana Plaza / Parking Estación Central,L-S 07:00 - 20:00 D-F 09:00 - 16:00,KR 19A 12 51,Los Mártires,66,Público,Plata,"-74,0857991042691","4,607080270610018"
+528,101,Solo Motos El Paisa,L-V 07:00 - 20:00,CL 13 14 23,Los Mártires,12,Público,Plata,"-74,08028263275433","4,603736313233428"
+529,102,Cancha Sintética,L-V 07:00 - 20:00,KR 22 19 70,Los Mártires,14,Público,Plata,"-74,08239239716599","4,6157140963181496"
+530,103,Parqueadero Motos,L-S 07:00 - 19:30,KR 19A 12 71,Los Mártires,22,Público,Plata,"-74,0856540191642","4,607307169070685"
+531,104,Parqueadero Publico Lima,L-V 07:00 - 20:00,KR 13 18 61,Santa Fé,50,Público,Plata,"-74,0756226123365","4,607723828563806"
+533,106,Parqueo Tranquilo YPT,L-V 07:00 - 20:00,KR 58 128 50,Suba,12,Público,Plata,"-74,07008064034575","4,714343978132154"
+534,107,Punto Verde,L-V 07:00 - 20:00,Calle 73 20 39,Barrios Unidos,13,Público,Plata,"-74,06210542510111","4,661042057581229"
+535,108,Niza,L-D 06:00 - 22:00,KR 70D 127 48,Suba,60,Público,Oro,"-74,07393675302593","4,711308772307011"
+536,109,Idipron,L-V 07:00 - 20:00,CL 61A  7 78,Chapinero,24,Privado,Oro,"-74,06107323928009","4,646479639908877"
+537,110,Idiger,L-V 07:00 - 20:00,DG 47 77A 09,Engativá,55,Privado,Oro,"-74,11343886329131","4,674760017691212"
+538,82,"Aparcar A,G,",L-V 07:00 - 22:00 S 07:00 - 18:00,CL 43A 18 A 40,Teusaquillo,40,Público,Plata,"-74,07188192328884","4,6321680803388885"
+539,112,City Parking Intercentro,L-S 05:30 - 22:00 D-F 06:30 - 17:00,KR 9 23 75,Santa Fé,26,Público,Plata,"-74,07107583174674","4,610177708026175"
+540,111,Parqueadero P y T,L-S 07:00 - 20:00,CL 55 10 43,Chapinero,12,Público,Plata,"-74,06415500328706","4,641906938383203"
+541,114,City Parking Bacata,24 h,CL 20 5 63,Santa Fé,71,Público,Oro,"-74,07040417578185","4,605577084947393"
+542,115,Universidad Central (Sede Norte),L-V 06:00 - 22:00,CL 75 16 03,Chapinero,108,Privado,Oro,"-74,06039173688139","4,662339574323098"
+543,116,City Parking Hotel Best Western,L-S 06:00 - 22:00,CL 93 13 71,Chapinero,15,Público,Plata,"-74,05048253955987","4,675701342311231"
+544,117,City Parking kr 15 con 93,"L-M 06:00 - 22:00
+J-S 24 h",KR 15 93 07,Chapinero,14,Público,Plata,"-74,05188011781765","4,676901957869395"
+545,118,City Parking Surtifruver Chapinero,"L-J 07:00 - 24:00
+V-S 07:00 - 03:00
+D-F 08:00 - 22:00",KR 7 58 18,Chapinero,14,Público,Plata,"-74,06182269384017","4,643703556204612"
+546,119,City Parking Parque 93,"L-M 06:00 - 23:00
+J 06:00 - 01:00
+V-S 06:00 - 03:00
+D-F 08:00 - 22:00",KR 12 93 43,Chapinero,12,Público,Plata,"-74,0488270190514","4,675684339180049"
+547,120,City Parking Kr 8 con 64,L-S 06:00 - 22:00,KR 8 64 30,Chapinero,12,Público,Plata,"-74,06038209167016","4,649329733832685"
+548,121,City Parking Cl 97 con 15,"L-S 06:00 - 22:00
+D 11:00 - 19:00",CL 97 15 21,Chapinero,12,Público,Plata,"-74,0492469149714","4,682405002553732"
+549,122,City Parking Cl 100,"L-S 06:00 - 22:00
+D-F 09:00 - 17:00",CL 100 13 67,Usaquén,12,Público,Plata,"-74,04606893241434","4,6837862947121645"
+550,123,City Parking LINK 7-60,L-S 06:00 - 22:00,CL 59 A Bis 5 53,Chapinero,18,Público,Oro,"-74,06095894482986","4,644858100798775"
+551,124,City Parking Park 90 - Carulla,"L-S 05:30 - 3:00
+D 08:00 -20:00",CL 90 16 05,Chapinero,48,Público,Oro,"-74,05393079913475","4,674875292815355"
+552,125,City Parking Park 63,24 h,CL 63 15 32,Barrios Unidos,14,Público,Oro,"-74,0660373394216","4,6499142859485225"
+553,126,City Parking Cl 64 con 10,"L-J 06:00 - 22:00
+V-S 06:00 - 03:00
+D 07:00 - 15:00",CL 64 10 64,Chapinero,20,Público,Oro,"-74,06227699703219","4,650179271752933"
+554,127,City Parking Via 7,"L-V 05:00 - 22:00
+S-D 06:00 - 18:00",CL 66 7 18,Chapinero,12,Público,Oro,"-74,05899667210976","4,6499660323014975"
+555,128,City Parking Cl 72 con 11,"L-S 06:00 - 22:00
+D-F 10:00 - 18:00",CL 72 11 61,Chapinero,14,Público,Oro,"-74,05932150022156","4,65770627832074"
+556,129,City Parking Cl 93B,"L-M 06:00 - 23:00
+J-V-S 06:00 - 03:00
+D-F 09:00 - 23:00",CL 93B 13 55,Chapinero,18,Público,Oro,"-74,04961885971984","4,67792615696965"
+557,130,City Parking Park 97,L-S 06:00 - 22:00,KR 14 96 55,Chapinero,56,Público,Oro,"-74,04843561140402","4,681702007225108"
+558,131,City Parking Bogotá Trade Center,"L-V 06:00 - 22:00
+S 06:00 - 15:00",KR 10 97A 13,Chapinero,14,Público,Oro,"-74,04353286978969","4,68032446592272"
+559,132,City Parking Universidad Externado,"L-V 05:30 - 22:00 
+S 06:00 - 18:00",CL 12 1 17 Este,La Candelaria,104,Público,Oro,"-74,06890703993608","4,595615842064089"
+560,133,City Parking Elemento,24 h,CL 26 69 76,Engativá,216,Público,Plata,"-74,10712103884755","4,658339670975902"
+561,134,City Parking Olivos Candelaria,L-D: 06:00 - 22:00,KR 13 34 83,Chapinero,12,Público,Plata,"-74,06798440905384","4,622732277274512"
+562,135,City Parking Universidad Catolica,L-V: 5:30 - 22:00,KR 13 46 55,Chapinero,38,Público,Oro,"-74,06616217200845","4,63374528882715"
+563,136,City Parking Centro Empresarial North Point,24 h,KR 7 156 80,Usaquén,51,Público,Oro,"-74,02412764897339","4,732700667123057"
+564,137,City Parking Cruz Verde Cedritos,"L-S 06:00 - 21:00
+D 06:00 - 20:00",AV 19 151 75,Usaquén,12,Público,Plata,"-74,0448423008602","4,7337655646068715"
+565,138,City Parking BIOS,"L-J 05:00 - 23:00
+V 05:00 - 21:00
+S 07:00 - 18:00
+D-F 07:00 - 16:00",KR 23 134A 21,Usaquén,18,Público,Oro,"-74,05055052316224","4,720140601957929"
+566,139,City Parking Jungla Kumba,"L-J 12:00 - 21:00
+V-S 12:00 - 21:00
+D-F 12:00 - 19:00",KR 59D 131 45,Suba,12,Público,Plata,"-74,0723541083449","4,723325190637829"
+567,140,City Parking Cruz Verde 123,"L-V 5:30 - 21:00
+D-F 07:00 - 17:00",AK 45 123 14,Usaquén,12,Público,Oro,"-74,05398160964387","4,704155580413819"
+568,141,City Parking Javesalud,"L-V 5:30 - 02:00
+S 06:00 - 18:00",AK 45 124 02,Usaquén,15,Público,Plata,"-74,05433084857519","4,704891774589579"
+569,142,City Parking Pluss 127,"L-V 06:00 - 21:00
+S 06:00 - 18:00",CL 127  20 16,Usaquén,84,Público,Oro,"-74,05065536643737","4,705908217047708"
+570,143,City Parking Imagen 127,"L-V 06:00 - 21:00
+S 06:00 - 18:00",CL 127 Bis 19 25,Usaquén,57,Público,Oro,"-74,048956375554","4,70664150237603"
+571,144,City Parking Pepe Sierra,L-D 06:00 - 23:00,KR 17 116 14,Usaquén,12,Público,Plata,"-74,04613218099688","4,697692605013535"
+572,145,City Parking CL 109 con KR 15,"L-S 06:00 - 22:00
+D-F 10:00 - 19:00",CL 109 15 47,Usaquén,12,Público,Oro,"-74,04556386542565","4,692940088837497"
+573,146,City Parking AK 19 con 105,"L-V 06:00 - 22:00
+S 06:00 - 18:00",KR 19 105 52,Usaquén,20,Público,Oro,"-74,05092293503465","4,692760951981657"
+574,147,City Parking Bogota Business Center,"L-V 5:30 - 22:00
+S 06:00 - 22:00
+D 08:00 - 16:00",CL 103 14A 53,Usaquén,38,Público,Plata,"-74,0469159386244","4,687705419413065"
+575,148,City Parking Banco Santander (Corpbanca),"L-V 5:30 - 22:00
+S 06:00 - 14:00",CL 99 7A 44,Chapinero,65,Privado,Oro,"-74,03963905122374","4,679563774929557"
+576,149,City Parking KR 9 con CL 109,"L-S 06:00 - 22:00
+D-F 09:00 - 21:00",KR 9 109 50,Usaquén,19,Público,Plata,"-74,03925114610766","4,69015533435958"
+577,150,Edificio Citibank,24 h,KR 9A 99 02,Usaquén,98,Público,Oro,"-74,0420832126016","4,680965411659426"
+578,151,Unidad Administrativa Especial de Servicios Públicos UAESP,L-V 07:00 - 20:00,AK 14 53 80,Chapinero,33,Público,Oro,"-74,06612270183147","4,640659037652994"
+579,167,City Parking Torre 78,L-D 06:00 - 20:00,CR 12A 78 40,Chapinero,56,Público,Plata,"-74,05602907858552","4,66404906723477"
+580,165,City Parking CR 11 - 94,L-D 06:00 - 20:00,CR 11 94 50,Usaquén,12,Público,Oro,"-74,04574207411001","4,6776830212531175"
+581,169,JW Marriot,24 h,CL 73 7 88,Chapinero,198,Público,Oro,"-74,05549845901855","4,6566611379169505"
+582,168,Orquesta Filarmónica de Bogotá,L-S 6:30 - 22:00,CL 39 Bis 14 32,Teusaquillo,34,Privado,Oro,"-74,06925233795825","4,627524042917666"
+583,166,City Parking QBO,L-D 06:00 - 20:00,CL 93A 13 24,Usaquén,12,Público,Plata,"-74,04945224828579","4,676886497410988"
+584,170,Ecopetrol Edificio San martin,24 h,KR 7 32 42,Santa Fé,96,Privado,Oro,"-74,06790358133952","4,6192869441945295"
+585,171,Ecopetrol Dirección General,24 h,KR 13 36 24,Santa Fé,24,Privado,Oro,"-74,06770814656124","4,624315299970339"
+586,172,Ecopetrol Teusacá,24 h,KR 7 37 69,Santa Fé,24,Privado,Oro,"-74,06598303805931","4,625431267036038"
+587,152,Secretaría de Desarrollo Económico - Plaza de los Artesanos,L-V 07:00 - 20:00,KR 60 63A 52,Santa Fé,70,Privado,Oro,"-74,08733087466067","4,662700814602496"
+588,153,Capital Tower Administracion,"L-V 05:30 - 22:00
+S 06:00 - 14:00",AC 100  7 33,Barrios Unidos,77,Privado,Oro,"-74,03859991783233","4,679661731970816"
+589,156,Secretaría Distrital de Salud,24 h,KR 32 12 81,Puente Aranda,80,Privado,Oro,"-74,09342119177555","4,6156462696203215"
+590,157,Secretaría Distrital de Hábitat,L-V 06:00 - 20:00,KR 13 52 25,Chapinero,68,Privado,Oro,"-74,06522002163338","4,639297298015077"
+591,161,City Parking Edificio Flormorado CR 7 - 116,"L-S 06:00 - 22:00
+D-F 09:00 - 21:00",CR 7 116 44,Usaquén,166,,Oro,"-74,03294912662301","4,69451092957245"
+592,162,City Parking Edificio Flormorado CL 117 CR 6,"L-S 06:00 - 22:00
+D-F 09:00 - 21:00",CL 117 6a 60,Usaquén,72,Privado,Oro,"-74,03229542708232","4,694546098810775"
+593,163,Secretaría Distrital de Movilidad,"L-S 5:30 - 22:00
+D 08:00 - 16:00",AC 13 37 35,Puente Aranda,112,Privado,Oro,"-74,0977517002657","4,6195846028802805"
+594,164,Edifico Old Mutual - Skandia,"L-V 5:30 - 22:00
+S 06:00 - 14:00",AV 19 109A 30,Usaquén,90,Privado,Oro,"-74,05045419142445","4,696175354225381"
+595,154,Idipron CL 63,L-V 07:00 - 20:00,KR 27A 63B 07,Barrios Unidos,12,Privado,Plata,"-74,0747737861397","4,653400493015984"
+596,155,Idipron Santa Lucía,L-V 07:00 - 20:00,DG 44 SUR 19 21,Teusaquillo,22,Privado,Plata,"-74,12369795172103","4,5750558835594735"
+597,158,City Parking Centro Comercial Outlet Americas,"L-S 06:00 - 22:00
+D-F 09:00 - 21:00",AV Americas 62 84,Puente Aranda,120,,Plata,"-74,11641797770908","4,629833397097312"
+598,159,City Parking Centro Comercial Zona Inn,"L-S 06:00 - 22:00
+D-F 09:00 - 21:00",CL 13 65 71,Puente Aranda,50,,Plata,"-74,11495975418646","4,634455587349717"
+599,160,City Parking CL 13 - 68,"L-S 06:00 - 22:00
+D-F 09:00 - 21:00",CL 13 66 70,Puente Aranda,22,,Plata,"-74,11715538496287","4,636809554245332"
+600,113,City Parking cl 23 con 5,L-S 06:00 - 22:00 D-F 08:00 - 19:00,CL 23 5 91,Santa Fé,12,Público,Plata,"-74,06944896569921","4,608430514210577"
+601,1,City Parking Edificio Pijao,L-V 05:30 - 22:00 S 06:00 - 14:00,AK 11 98 07,Chapinero,40,Público,Oro,"-74,04428387843517","4,681123645845228"
+602,2,City Parking Capital Tower,L-V 05:30 - 22:00 S 06:00 - 14:00,AC 100  7 33,Chapinero,80,Público,Oro,"-74,03933641778768","4,680180119760269"
+603,3,City Parking MegaTower,L-V 05:30 - 22:00 S 06:00 - 14:00,AC 100 13 21,Chapinero,126,Público,Oro,"-74,04624122569258","4,68373580966605"
+604,4,City Parking 125,L-V 05:30 - 22:00 S 06:00 - 14:00,AK 19 125 17,Usaquén,28,Público,Oro,"-74,04906492707462","4,704796281341318"
+605,5,Centro Comercial Santa Barbara Drive,L-M 05:30 - 22:00 J-S 05:30 - 03:00 D-F 08:00 - 20:00,AK 19  122  49,Usaquén,32,Público,Oro,"-74,04945950038507","4,702419873807007"
+606,6,Fundacion Santa Fe,24 h,AC 116 7 02,Usaquén,52,Público,Oro,"-74,03382439023862","4,6940529871073"
+607,7,City Parking Medical Center,24 h,CL 119 7 14,Usaquén,14,Público,Oro,"-74,03218569068385","4,696117780197492"
