@@ -1,15 +1,17 @@
 import pandas as pd
 from igraph import *
-import geopy
-import networkx
+#import geopy
+#import networkx
 from math import *
 #Lo primero serÃ¡ tener las coordenadas y sacar la distancia entre todos de uno a mucho con distancias en R2
 
 #Eliminar las que tengan distancias mayores a 300 mts pues una cuadra en promedio son 100 mts y las que atraviesen edificios no se como identificarlas para ponerles un numero enorme.
 #Tripleta nodo1,nodo2, formula distancia
 def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y
-    if 100000*sqrt((p2[0]-p1[0])^2+(p2[1]-p1[1])^2) <= 300: #Limito la distancia a los que deben ser conexos
-        return (p1,p2,100000*sqrt((p2[0]-p1[0])^2+(p2[1]-p1[1])^2)) # es una distancia en metros y ni a palo da negativo
+    a = 100000*sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2))
+    if a <= 300: #Limito la distancia a los que deben ser conexos
+        print(a)
+        return (p1,p2,a) # es una distancia en metros y ni a palo da negativo
     else:
         return (p1,p2,0) # es una distancia en metros
     #el 100000 lo saque a ojo comparando una distancia en maps y con la que encontre la diferencia fue como 10mts entonces todo good
@@ -41,17 +43,21 @@ def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes.csv'):
         if x1<=i[0] and x2>=i[0]:
             if y1<=i[1] and y2>=i[1]: #Es decir esta en el intervalo de los dos puntos cuenta como accidente
                 num_acc += 1 # Por cada uno que cumpla agregamos un accidente
+    print(num_acc)
     return num_acc
 #Toca pedir el alfa al usuario en el input
 def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas.csv'):
+    graph_1 = []
     vertices = []
     df = pd.read_csv(name)
     coord = df.values.tolist() # Lista de listas
     coord = coord[1:] #Mocho la dupla de nombres
-    graph = [ dis(i,j) for i in coord for j in coordenadas if i!=j and dis(i,j) not in graph and dis(j,i) not in graph and dis(i,j)[2] != 0]
+    graph_1 = [ distancia_r2(i,j) for i in coord for j in coord if i!=j and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j)[2] != 0]
+    print('YASSSSS YA TERMINE EL GRAFO CON PESOS DE DISTANCIA SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
+    print(graph_1)
     #Solo ingresan los que tiene una distancia menor o igual a 300mts si es mayor pues se le pone un 0 y no entra al grafo
     #short_distances_graph = [(m[0],m[1],m[2]) for m in graph if m[2]<=300] #Reduzco distancias a solo 300mts como max
-    pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_between2nodes(h[0],h[1]),alfa)) for h in graph]#Si se como modificar el peso de cada vvertices me ahorro esta linea
+    pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_between2nodes(h[0],h[1]),alfa)) for h in graph_1]#Si se como modificar el peso de cada vvertices me ahorro esta linea
     #Este es el grafo que voy a retornar pues ya tiene las distancias ponderadas y la conexidad, lo unico seria borrar las aristas raras pero pos por ahora meh
     vertices1 = [i[0] for i in pond_distance_graph if i[0] not in vertices1]
     vertices.extend(vertices1)
@@ -116,7 +122,8 @@ def import_graph(name='graph.csv'):#A partir de un csv crea el grafo falta poner
 #-------------------------------------------GRAFO Y CSV------------------------------------------------------
 
 def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimbita
-    t = gen_graph()
+    vertices = []
+    vertices,t = gen_graph()
     graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
     g = Graph.TupleList(t, weights=True)
     g.vs["label"] = g.vs["name"]
