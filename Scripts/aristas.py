@@ -74,3 +74,4 @@ def dijkstra(graph,pini,pfin): #pini es u y pfini es z y recordar que los puntos
             else:
                 w = float('inf')
             L[i] = min(L[i],L[pini]+w[0]) #Asi tengo el diccionario con el cost de ir a todas desde v
+        
