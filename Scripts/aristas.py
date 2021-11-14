@@ -1,8 +1,8 @@
 import pandas as pd
-import * from igraph
+from igraph import *
 import geopy
 import networkx
-import * from math
+from math import *
 #Lo primero serÃ¡ tener las coordenadas y sacar la distancia entre todos de uno a mucho con distancias en R2
 
 #Eliminar las que tengan distancias mayores a 300 mts pues una cuadra en promedio son 100 mts y las que atraviesen edificios no se como identificarlas para ponerles un numero enorme.
@@ -10,7 +10,7 @@ import * from math
 def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y
     if 100000*sqrt((p2[0]-p1[0])^2+(p2[1]-p1[1])^2) <= 300: #Limito la distancia a los que deben ser conexos
         return (p1,p2,100000*sqrt((p2[0]-p1[0])^2+(p2[1]-p1[1])^2)) # es una distancia en metros y ni a palo da negativo
-    else
+    else:
         return (p1,p2,0) # es una distancia en metros
     #el 100000 lo saque a ojo comparando una distancia en maps y con la que encontre la diferencia fue como 10mts entonces todo good
 
@@ -18,10 +18,10 @@ def pond_distance(D,A,alfa): #DOnde D es la distancia y A es el num de acidentes
     return (1-alfa)*D + alfa*A #Aun no se como quitar las sobrantes pues en cuanto a distancia no uenta y accidentes pues tampoco ya que si son 0 peta.
 
 
-def acc_between2nodes(p1,p2, name = 'siniestralidad_vial_organizado_localidades.xlsx'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
+def acc_between2nodes(p1,p2, name = 'C:\Users\USUARIO\Documents\Universidad\UR\Cuarto_Semestre_MACC\Teoría de grafos\Proyecto\BiciSafe\Bases_de_datos_utilizadas\Accidentes.csv'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
     df = pd.read_csv(name)
     dir_coord = df.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
-    #coord = coord[1:] #Mocho la dupla de nombres Esto es por si tiene titulo
+    dir_coord = dir_coord[1:] #Mocho la dupla de nombres Esto es por si tiene titulo
     #Para saber cuales son los mayore sy los  menores para hacer el intervalo de busqueda
     if p1[0]>=p2[0]:
         x1 = p2[0]
@@ -116,7 +116,6 @@ def import_graph(name='graph.csv'):#A partir de un csv crea el grafo falta poner
 #-------------------------------------------GRAFO Y CSV------------------------------------------------------
 
 def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimbita
-
     t = gen_graph()
     graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
     g = Graph.TupleList(t, weights=True)
