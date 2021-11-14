@@ -18,7 +18,7 @@ def pond_distance(D,A,alfa): #DOnde D es la distancia y A es el num de acidentes
     return (1-alfa)*D + alfa*A #Aun no se como quitar las sobrantes pues en cuanto a distancia no uenta y accidentes pues tampoco ya que si son 0 peta.
 
 
-def acc_between2nodes(p1,p2, name = 'C:\Users\USUARIO\Documents\Universidad\UR\Cuarto_Semestre_MACC\Teoría de grafos\Proyecto\BiciSafe\Bases_de_datos_utilizadas\Accidentes.csv'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
+def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes.csv'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
     df = pd.read_csv(name)
     dir_coord = df.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
     dir_coord = dir_coord[1:] #Mocho la dupla de nombres Esto es por si tiene titulo
@@ -43,7 +43,7 @@ def acc_between2nodes(p1,p2, name = 'C:\Users\USUARIO\Documents\Universidad\UR\C
                 num_acc += 1 # Por cada uno que cumpla agregamos un accidente
     return num_acc
 #Toca pedir el alfa al usuario en el input
-def gen_graph(alfa = 0.05,name = 'C:\Users\USUARIO\Documents\Universidad\UR\Cuarto_Semestre_MACC\Teoría de grafos\Proyecto\BiciSafe\Bases_de_datos_utilizadas\coordenadas.csv'):
+def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas.csv'):
     vertices = []
     df = pd.read_csv(name)
     coord = df.values.tolist() # Lista de listas
