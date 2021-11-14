@@ -18,7 +18,7 @@ def pond_distance(D,A,alfa): #DOnde D es la distancia y A es el num de acidentes
     return (1-alfa)*D + alfa*A #Aun no se como quitar las sobrantes pues en cuanto a distancia no uenta y accidentes pues tampoco ya que si son 0 peta.
 
 
-def acc_entre2ptos(p1,p2, name = 'siniestralidad_vial_organizado_localidades.xlsx'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
+def acc_between2nodes(p1,p2, name = 'siniestralidad_vial_organizado_localidades.xlsx'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
     df = pd.read_csv(name)
     dir_coord = df.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
     #coord = coord[1:] #Mocho la dupla de nombres Esto es por si tiene titulo
@@ -44,34 +44,53 @@ def acc_entre2ptos(p1,p2, name = 'siniestralidad_vial_organizado_localidades.xls
     return num_acc
 #Toca pedir el alfa al usuario en el input
 def gen_graph(alfa = 0.05,name = 'C:\Users\USUARIO\Documents\Universidad\UR\Cuarto_Semestre_MACC\Teoría de grafos\Proyecto\BiciSafe\Bases de datos utilizadas\coordenadas.csv'):
+    vertices = []
     df = pd.read_csv(name)
     coord = df.values.tolist() # Lista de listas
     coord = coord[1:] #Mocho la dupla de nombres
     graph = [ dis(i,j) for i in coord for j in coordenadas if i!=j and dis(i,j) not in graph and dis(j,i) not in graph and dis(i,j)[2] != 0]
     #Solo ingresan los que tiene una distancia menor o igual a 300mts si es mayor pues se le pone un 0 y no entra al grafo
     #short_distances_graph = [(m[0],m[1],m[2]) for m in graph if m[2]<=300] #Reduzco distancias a solo 300mts como max
-    pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_entre2ptos(h[0],h[1]),alfa)) for h in graph]
+    pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_between2nodes(h[0],h[1]),alfa)) for h in graph]#Si se como modificar el peso de cada vvertices me ahorro esta linea
     #Este es el grafo que voy a retornar pues ya tiene las distancias ponderadas y la conexidad, lo unico seria borrar las aristas raras pero pos por ahora meh
-    return pond_distance_graph
+    vertices1 = [i[0] for i in pond_distance_graph if i[0] not in vertices1]
+    vertices.extend(vertices1)
+    vertices2 = [i[1] for i in pond_distance_graph if i[1] not in vertices2 and i[1] not in vertices] # El and es para evitar duplicados
+    vertices.extend(vertices2)
+    return pond_distance_graph,vertices
 
-def dijkstra(graph,pini,pfin): #pini es u y pfini es z y recordar que los puntos son de dos componentes x y y
-    L = {pini:0} #Diccionario de distancias desde pini
-    for i in graph: #Sacando la lista de vertices e inicializando pesos en inf
-        if i[0] not in L and i[1] not in L:
-            L[i[0]] = float('inf') ## Este truco requiere python 3.5 si no sirve poner un numero enorme y sale
-            L[i[1]] = float('inf') ## Este truco requiere python 3.5 si no sirve poner un numero enorme y sale
-        elif i[0] not in L:
-            L[i[0]] = float('inf') ## Este truco requiere python 3.5 si no sirve poner un numero enorme y sale
-        elif i[1] not in L:
-            L[i[1]] = float('inf') ## Este truco requiere python 3.5 si no sirve poner un numero enorme y sale
+def get_weight_from_graph(v1,v2,graph):
+    vertices_conexos = [(i[0],i[1]) for i in graph if (i[0],i[1]) not in vertices_conexos and (i[1],i[0]) not in vertices_conexos] #Saco las aristas sin peso
+    w = float('inf') #Pues la arista entre esos dos no existe
+    if (v1,v2) in vertices_conexos:
+        w = [j[2] for j in graph if v1 == j[0] and v2 == j[1] ] #Permito el opuesto pues no me importa la direccion solo el peso
+    elif (v2,v1) in vertices_conexos:
+        w = [j[2] for j in graph if v2 == j[0] and v1 == j[1] ] #Permito el opuesto pues no me importa la direccion solo el peso
+    return w
+
+def get_weight_from_list(v,L):
+    for i in L:
+        if v in i:
+            return i[1]
+
+def get_path():
+
+def dijkstra(graph,pini,pfin,vertices): #pini es u y pfini es z y recordar que los puntos son de dos componentes x y y
+    #L = {pini:0} #Diccionario de distancias desde pini
+    L = [(pini,0)] #Menos enredo haciendolo duplas
+    lista_costos_iniciales = [(i,float('inf')) for i in vertices if i not in L]
+    L.extend(lista_costos_iniciales)
+
+    lista_costos = [i[1] for i in L]
     S = [] #Lista de los revisados
-    w = 0
     while pfin not in S:
-        S.append(pini)  #Es el unico con 0 y el resto son infinitos
-        for i in L:
-            if (pfini,i) in graph:
-                w = [j[2] for j in graph if (pfini,i) in j or (pfini,i) in j] #Permito el opuesto pues no me importa la direccion solo el peso
-            else:
-                w = float('inf')
-            L[i] = min(L[i],L[pini]+w[0]) #Asi tengo el diccionario con el cost de ir a todas desde v
-        
+        #contador = lista_costos.index(min(lista_costos))
+        y = L[lista_costos.index(min(lista_costos))][0] #Vertice con el costo min asociado
+        if y not in S: #Nunca va a estar en S o eso espero
+            x = y #x que no pertenece a S y con L(X) minimo
+            S.append(x) #4b
+        #Paso 4c
+        for i in list(set(vertices)-set(S)): #Para todo vertice que no este en S
+            L.append((i,min(get_weight_from_list(i,L),get_weight_from_list(x,L)+get_weight_from_graph(x,i,graph))))
+    short_path = get_path()
+    return short_path
