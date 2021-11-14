@@ -73,14 +73,22 @@ def get_weight_from_list(v,L):
         if v in i:
             return i[1]
 
-def get_path():
+def get_path(L,graph):
+    verts_path = [i[0] for i in L]
+    vertices_conexos = [(i[0],i[1]) for i in graph if (i[0],i[1]) not in vertices_conexos and (i[1],i[0]) not in vertices_conexos] #Saco las aristas sin peso
+    path = [verts_path[0]] #Pongo el inicial que es U
+    for v in verts_path[1:]:
+        if (path[-1],v) in vertices_conexos: #Es decir existe una aritsta entre estos dos #-1 Para tener siempre el ultimo pues debo seguir la conexidad
+            path.append(v)
+        elif (v,path[-1]) in vertices_conexos: #Pues tengo que considerar que esten en otro orden
+            path.append(v)
+    return path
+
 
 def dijkstra(graph,pini,pfin,vertices): #pini es u y pfini es z y recordar que los puntos son de dos componentes x y y
-    #L = {pini:0} #Diccionario de distancias desde pini
     L = [(pini,0)] #Menos enredo haciendolo duplas
     lista_costos_iniciales = [(i,float('inf')) for i in vertices if i not in L]
     L.extend(lista_costos_iniciales)
-
     lista_costos = [i[1] for i in L]
     S = [] #Lista de los revisados
     while pfin not in S:
@@ -92,5 +100,5 @@ def dijkstra(graph,pini,pfin,vertices): #pini es u y pfini es z y recordar que l
         #Paso 4c
         for i in list(set(vertices)-set(S)): #Para todo vertice que no este en S
             L.append((i,min(get_weight_from_list(i,L),get_weight_from_list(x,L)+get_weight_from_graph(x,i,graph))))
-    short_path = get_path()
-    return short_path
+    shortest_path = get_path(L,graph)
+    return shortest_path
