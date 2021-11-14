@@ -43,7 +43,7 @@ def acc_between2nodes(p1,p2, name = 'siniestralidad_vial_organizado_localidades.
                 num_acc += 1 # Por cada uno que cumpla agregamos un accidente
     return num_acc
 #Toca pedir el alfa al usuario en el input
-def gen_graph(alfa = 0.05,name = 'C:\Users\USUARIO\Documents\Universidad\UR\Cuarto_Semestre_MACC\Teoría de grafos\Proyecto\BiciSafe\Bases de datos utilizadas\coordenadas.csv'):
+def gen_graph(alfa = 0.05,name = 'C:\Users\USUARIO\Documents\Universidad\UR\Cuarto_Semestre_MACC\Teoría de grafos\Proyecto\BiciSafe\Bases_de_datos_utilizadas\coordenadas.csv'):
     vertices = []
     df = pd.read_csv(name)
     coord = df.values.tolist() # Lista de listas
@@ -102,3 +102,27 @@ def dijkstra(graph,pini,pfin,vertices): #pini es u y pfini es z y recordar que l
             L.append((i,min(get_weight_from_list(i,L),get_weight_from_list(x,L)+get_weight_from_graph(x,i,graph))))
     shortest_path = get_path(L,graph)
     return shortest_path
+#-------------------------------------------GRAFO Y CSV------------------------------------------------------
+def graph2csv(t) -> None: #Saca el grafo creado en un csv
+    df = pd.DataFrame(t)
+    df = df.set_axis(['Node A', 'Node B', 'Cost'], axis=1, inplace=False)
+    df.to_csv('graph.csv', index=False)
+
+
+def import_graph(name='graph.csv'):#A partir de un csv crea el grafo falta poner que el usuario meta el nombre con un input
+    df = pd.read_csv(name)
+    return df.values.tolist()
+
+#-------------------------------------------GRAFO Y CSV------------------------------------------------------
+
+def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimbita
+
+    t = gen_graph()
+    graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
+    g = Graph.TupleList(t, weights=True)
+    g.vs["label"] = g.vs["name"]
+    g.es["label"] = g.es["weight"]
+
+    layout = g.layout("kk")
+    plot(g, layout=layout)
+main()
