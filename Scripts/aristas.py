@@ -1,29 +1,35 @@
 import pandas as pd
 from igraph import *
-from cython import *
+#from cython import *
 from math import *
+from datetime import *
 #Lo primero serÃ¡ tener las coordenadas y sacar la distancia entre todos de uno a mucho con distancias en R2
 
 #Eliminar las que tengan distancias mayores a 300 mts pues una cuadra en promedio son 100 mts y las que atraviesen edificios no se como identificarlas para ponerles un numero enorme.
 #Tripleta nodo1,nodo2, formula distancia
-def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y
-    a = 100000*sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2))
-    if a <= 300: #Limito la distancia a los que deben ser conexos
+def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y donde p2 es mayor a p1
+    a = 100000*sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2)) #No importa que las long sean negativas pues
+    if a <= 150 and a>0: #Limito la distancia a los que deben ser conexos
         print(a)
         return (p1,p2,a) # es una distancia en metros y ni a palo da negativo
     else:
         return (p1,p2,0) # es una distancia en metros
     #el 100000 lo saque a ojo comparando una distancia en maps y con la que encontre la diferencia fue como 10mts entonces todo good
 
-def pond_distance(D,A,alfa): #DOnde D es la distancia y A es el num de acidentes entre los puntos A y B
+def pond_distance(D,A,alfa): #Donde D es la distancia y A es el num de acidentes entre los puntos A y B
     return (1-alfa)*D + alfa*A #Aun no se como quitar las sobrantes pues en cuanto a distancia no uenta y accidentes pues tampoco ya que si son 0 peta.
-
 
 def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes.csv'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
     df = pd.read_csv(name)
-    dir_coord = df.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
-    dir_coord = dir_coord[1:] #Mocho la dupla de nombres Esto es por si tiene titulo
-    #Para saber cuales son los mayore sy los  menores para hacer el intervalo de busqueda
+    #df = df.iloc[1: , :] #Mocho la dupla de nombres Esto es por si tiene titulo
+    #df.drop(index=df.index[0],axis=0,inplace=True)
+    #df.columns = ['0','1']
+    #df[1] = df[1].apply(make_positive) #Hace positiva la longitud que siempre es -1
+    dir_acc = df.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
+    dir_acc_2 = dir_acc[1:]
+    print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+    print(dir_acc_2)
+    #Para saber cuales son los mayores y los  menores para hacer el intervalo de busqueda
     if p1[0]>=p2[0]:
         x1 = p2[0]
         x2 = p1[0]
@@ -36,32 +42,39 @@ def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes.csv'):
     elif p1[1]<p2[1]:
         y1 = p1[1]
         y2 = p2[1]
-    #Para saber cuales son los mayore sy los  menores para hacer el intervalo de busqueda
+    #Para saber cuales son los mayores y los  menores para hacer el intervalo de busqueda
     num_acc = 0
-    for i in dir_coord:
+    for i in dir_acc_2:
         if x1<=i[0] and x2>=i[0]:
             if y1<=i[1] and y2>=i[1]: #Es decir esta en el intervalo de los dos puntos cuenta como accidente
                 num_acc += 1 # Por cada uno que cumpla agregamos un accidente
-    print(num_acc)
+    print("Accidentes" + str(num_acc))
     return num_acc
+
 #Toca pedir el alfa al usuario en el input
-def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas.csv'):
+def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas_test.csv'):
     graph_1 = []
     vertices = []
     df = pd.read_csv(name)
+    #df.drop(index=df.index[0],axis=0,inplace=True)
+    #df = df.iloc[1: , :] #Mocho la dupla de nombres Esto es por si tiene titulo
+    #df.columns = ['0','1']
+    #df[0] = df[0].apply(make_positive)
     coord = df.values.tolist() # Lista de listas
-    coord = coord[1:] #Mocho la dupla de nombres
+    coord2 = coord[1:]
 #-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
-    print('CYTHON saving tha day')
+#    print('CYTHON saving tha day') PENDIENTE PASAR ESTE CODE A cython
     t1 = datetime.now()
-    for i in coord
-        edge = distancia_r2(i,j)
-        op_edge = (edge[1],edge[0],edge[2]) #La idea de esto es vitar aristas multiples
-        for j in coord:
+    for i in coord2:
+        for j in coord2:
+            edge = distancia_r2(i,j)
+            op_edge = (edge[1],edge[0],edge[2]) #La idea de esto es vitar aristas multiples
             if i!=j and edge not in graph_1 and op_edge not in graph_1 and edge[2] != 0:
                 graph_1.append(edge)
-    print(f"Cython: {datetime.now-t1}")
-    print('CYTHON saving tha day')
+    t2 = datetime.now()-t1
+    print('Time of execution')
+    print(t2)
+#    print('CYTHON saving tha day')
 #-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
     #graph_1 = [ distancia_r2(i,j) for i in coord for j in coord if i!=j and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j)[2] != 0]
     print('YASSSSS YA TERMINE EL GRAFO CON PESOS DE DISTANCIA SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
@@ -76,6 +89,7 @@ def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas.csv'):
     vertices.extend(vertices2)
     return pond_distance_graph,vertices
 
+#----------------Dijkstra--------------------------------------------------------------------------------------------
 def get_weight_from_graph(v1,v2,graph):
     vertices_conexos = [(i[0],i[1]) for i in graph if (i[0],i[1]) not in vertices_conexos and (i[1],i[0]) not in vertices_conexos] #Saco las aristas sin peso
     w = float('inf') #Pues la arista entre esos dos no existe
