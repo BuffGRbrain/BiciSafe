@@ -9,7 +9,7 @@ from datetime import *
 #Tripleta nodo1,nodo2, formula distancia
 def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y donde p2 es mayor a p1
     a = 100000*sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2)) #No importa que las long sean negativas pues
-    if a <= 150 and a>0: #Limito la distancia a los que deben ser conexos
+    if a <= 150 and a>50: #Limito la distancia a los que deben ser conexos
         print(a)
         return (p1,p2,a) # es una distancia en metros y ni a palo da negativo
     else:
@@ -19,16 +19,8 @@ def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y don
 def pond_distance(D,A,alfa): #Donde D es la distancia y A es el num de acidentes entre los puntos A y B
     return (1-alfa)*D + alfa*A #Aun no se como quitar las sobrantes pues en cuanto a distancia no uenta y accidentes pues tampoco ya que si son 0 peta.
 
-def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes_test.csv'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
-    df = pd.read_csv(name)
-    #df = df.iloc[1: , :] #Mocho la dupla de nombres Esto es por si tiene titulo
-    #df.drop(index=df.index[0],axis=0,inplace=True)
-    #df.columns = ['0','1']
-    #df[1] = df[1].apply(make_positive) #Hace positiva la longitud que siempre es -1
-    dir_acc = df.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
-    dir_acc_2 = dir_acc[1:]
-    print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-    print(dir_acc_2)
+def acc_between2nodes(p1,p2,dir_acc_2): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
+    #dir_acc_2 es la lista de listas de accidentes
     #Para saber cuales son los mayores y los  menores para hacer el intervalo de busqueda
     if p1[0]>=p2[0]:
         x1 = p2[0]
@@ -52,18 +44,21 @@ def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes_test.c
     return num_acc
 
 #Toca pedir el alfa al usuario en el input
-def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas_test.csv'):
+def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadas_test.csv',name2 = 'Bases_de_datos_utilizadas\Accidentes_test.csv'):
     graph_1 = []
     vertices = []
     vertices1 = []
     vertices2 = []
-    df = pd.read_csv(name)
+    df1 = pd.read_csv(name1)
+    coord = df1.values.tolist() # Lista de listas
+    coord2 = coord[1:]
     #df.drop(index=df.index[0],axis=0,inplace=True)
     #df = df.iloc[1: , :] #Mocho la dupla de nombres Esto es por si tiene titulo
     #df.columns = ['0','1']
     #df[0] = df[0].apply(make_positive)
-    coord = df.values.tolist() # Lista de listas
-    coord2 = coord[1:]
+    df2 = pd.read_csv(name2)
+    dir_acc = df2.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
+    dir_acc = dir_acc[1:]
 #-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
 #    print('CYTHON saving tha day') PENDIENTE PASAR ESTE CODE A cython
     t1 = datetime.now()
@@ -76,14 +71,13 @@ def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas_test.csv
     t2 = datetime.now()-t1
     print('Time of execution')
     print(t2)
-#    print('CYTHON saving tha day')
 #-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
     #graph_1 = [ distancia_r2(i,j) for i in coord for j in coord if i!=j and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j)[2] != 0]
     print('YASSSSS YA TERMINE EL GRAFO CON PESOS DE DISTANCIA SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
     print(graph_1)
     #Solo ingresan los que tiene una distancia menor o igual a 300mts si es mayor pues se le pone un 0 y no entra al grafo
     #short_distances_graph = [(m[0],m[1],m[2]) for m in graph if m[2]<=300] #Reduzco distancias a solo 300mts como max
-    pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_between2nodes(h[0],h[1]),alfa)) for h in graph_1]#Si se como modificar el peso de cada vvertices me ahorro esta linea
+    pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_between2nodes(h[0],h[1],dir_acc),alfa)) for h in graph_1]#Si se como modificar el peso de cada vvertices me ahorro esta linea
     #Este es el grafo que voy a retornar pues ya tiene las distancias ponderadas y la conexidad, lo unico seria borrar las aristas raras pero pos por ahora meh
     vertices1 = [i[0] for i in pond_distance_graph if i[0] not in vertices1]
     vertices.extend(vertices1)
