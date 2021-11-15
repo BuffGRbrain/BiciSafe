@@ -65,8 +65,8 @@ def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadas_test.cs
     for i in coord2:
         for j in coord2:
             edge = distancia_r2(i,j)
-            op_edge = (edge[1],edge[0],edge[2]) #La idea de esto es vitar aristas multiples
-            if i!=j and edge not in graph_1 and op_edge not in graph_1 and edge[2] != 0:
+            op_edge = (edge[1],edge[0],edge[2]) #La idea de esto es evitar aristas multiples
+            if i!=j and edge not in graph_1 and op_edge not in graph_1 and edge[2] != 0: #El que no este el edge ni el op es para evitar aristas multiples
                 graph_1.append(edge)
     t2 = datetime.now()-t1
     print('Time of execution')
