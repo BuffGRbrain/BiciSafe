@@ -150,7 +150,11 @@ def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimb
     t,vertices = gen_graph()
     print(t)
     tp = [(str(i[0]),str(i[1]),i[2]) for i in t] #Permite el ploteo y talvez deberia ser el que se vaya para el dijkstra
-    #a = dijkstra(t,pini,pfin,vertices)
+    #Esto devuelve tp a t [(float(i) for i in j.split(',')) for j in g.vs["name"]] pero toca ponerle los pesos
+    pini = [-74.0699766, 4.6672853]
+    pfin = [-74.0709072, 4.6680027]
+    a = dijkstra(t,pini,pfin,vertices)
+    print("El camino mas corto entre los puntos dados es: "+str(a))
     #graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
     g = Graph.TupleList(tp, weights=True)
     g.vs["label"] = g.vs["name"]
