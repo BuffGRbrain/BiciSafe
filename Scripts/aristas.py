@@ -149,7 +149,7 @@ def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimb
     tp = []
     t,vertices = gen_graph()
     print(t)
-    tp = [(str(i[0]),str(i[1]),i[2]) for i in t] #Permite el ploteo
+    tp = [(str(i[0]),str(i[1]),i[2]) for i in t] #Permite el ploteo y talvez deberia ser el que se vaya para el dijkstra
     #a = dijkstra(t,pini,pfin,vertices)
     #graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
     g = Graph.TupleList(tp, weights=True)
