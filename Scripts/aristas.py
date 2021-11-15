@@ -1,7 +1,6 @@
 import pandas as pd
 from igraph import *
-#import geopy
-#import networkx
+from cython import *
 from math import *
 #Lo primero serÃ¡ tener las coordenadas y sacar la distancia entre todos de uno a mucho con distancias en R2
 
@@ -52,7 +51,19 @@ def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas.csv'):
     df = pd.read_csv(name)
     coord = df.values.tolist() # Lista de listas
     coord = coord[1:] #Mocho la dupla de nombres
-    graph_1 = [ distancia_r2(i,j) for i in coord for j in coord if i!=j and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j)[2] != 0]
+#-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
+    print('CYTHON saving tha day')
+    t1 = datetime.now()
+    for i in coord
+        edge = distancia_r2(i,j)
+        op_edge = (edge[1],edge[0],edge[2]) #La idea de esto es vitar aristas multiples
+        for j in coord:
+            if i!=j and edge not in graph_1 and op_edge not in graph_1 and edge[2] != 0:
+                graph_1.append(edge)
+    print(f"Cython: {datetime.now-t1}")
+    print('CYTHON saving tha day')
+#-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
+    #graph_1 = [ distancia_r2(i,j) for i in coord for j in coord if i!=j and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j)[2] != 0]
     print('YASSSSS YA TERMINE EL GRAFO CON PESOS DE DISTANCIA SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
     print(graph_1)
     #Solo ingresan los que tiene una distancia menor o igual a 300mts si es mayor pues se le pone un 0 y no entra al grafo
