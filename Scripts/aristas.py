@@ -19,7 +19,7 @@ def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y don
 def pond_distance(D,A,alfa): #Donde D es la distancia y A es el num de acidentes entre los puntos A y B
     return (1-alfa)*D + alfa*A #Aun no se como quitar las sobrantes pues en cuanto a distancia no uenta y accidentes pues tampoco ya que si son 0 peta.
 
-def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes.csv'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
+def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes_test.csv'): #Recibe dos puntos conexos y queremos ver la cantidad de accidentes entre estos
     df = pd.read_csv(name)
     #df = df.iloc[1: , :] #Mocho la dupla de nombres Esto es por si tiene titulo
     #df.drop(index=df.index[0],axis=0,inplace=True)
@@ -55,6 +55,8 @@ def acc_between2nodes(p1,p2, name = 'Bases_de_datos_utilizadas\Accidentes.csv'):
 def gen_graph(alfa = 0.05,name = 'Bases_de_datos_utilizadas\coordenadas_test.csv'):
     graph_1 = []
     vertices = []
+    vertices1 = []
+    vertices2 = []
     df = pd.read_csv(name)
     #df.drop(index=df.index[0],axis=0,inplace=True)
     #df = df.iloc[1: , :] #Mocho la dupla de nombres Esto es por si tiene titulo
@@ -149,7 +151,7 @@ def import_graph(name='graph.csv'):#A partir de un csv crea el grafo falta poner
 def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimbita
     vertices = []
     vertices,t = gen_graph()
-    graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
+    #graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
     g = Graph.TupleList(t, weights=True)
     g.vs["label"] = g.vs["name"]
     g.es["label"] = g.es["weight"]
