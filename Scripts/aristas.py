@@ -80,9 +80,9 @@ def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadas_test.cs
     pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_between2nodes(h[0],h[1],dir_acc),alfa)) for h in graph_1]#Si se como modificar el peso de cada vvertices me ahorro esta linea
     #Este es el grafo que voy a retornar pues ya tiene las distancias ponderadas y la conexidad, lo unico seria borrar las aristas raras pero pos por ahora meh
     vertices1 = [i[0] for i in pond_distance_graph if i[0] not in vertices1]
-    vertices.extend(vertices1)
     vertices2 = [i[1] for i in pond_distance_graph if i[1] not in vertices2 and i[1] not in vertices] # El and es para evitar duplicados
-    vertices.extend(vertices2)
+    vertices = vertices1 + vertices1
+    print(vertices)
     return pond_distance_graph,vertices
 
 #----------------Dijkstra--------------------------------------------------------------------------------------------
@@ -129,6 +129,7 @@ def dijkstra(graph,pini,pfin,vertices): #pini es u y pfini es z y recordar que l
             L.append((i,min(get_weight_from_list(i,L),get_weight_from_list(x,L)+get_weight_from_graph(x,i,graph))))
     shortest_path = get_path(L,graph)
     return shortest_path
+
 #-------------------------------------------GRAFO Y CSV------------------------------------------------------
 def graph2csv(t) -> None: #Saca el grafo creado en un csv
     df = pd.DataFrame(t)
@@ -144,9 +145,14 @@ def import_graph(name='graph.csv'):#A partir de un csv crea el grafo falta poner
 
 def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimbita
     vertices = []
-    vertices,t = gen_graph()
+    t = []
+    tp = []
+    t,vertices = gen_graph()
+    print(t)
+    tp = [(str(i[0]),str(i[1]),i[2]) for i in t] #Permite el ploteo
+    #a = dijkstra(t,pini,pfin,vertices)
     #graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
-    g = Graph.TupleList(t, weights=True)
+    g = Graph.TupleList(tp, weights=True)
     g.vs["label"] = g.vs["name"]
     g.es["label"] = g.es["weight"]
 
