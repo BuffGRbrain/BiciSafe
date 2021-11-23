@@ -1,6 +1,6 @@
 import pandas as pd
 from igraph import *
-#from cython import *
+from cython import *
 from math import *
 from datetime import *
 #Lo primero serÃ¡ tener las coordenadas y sacar la distancia entre todos de uno a mucho con distancias en R2
@@ -44,7 +44,7 @@ def acc_between2nodes(p1,p2,dir_acc_2): #Recibe dos puntos conexos y queremos ve
     return num_acc
 
 #Toca pedir el alfa al usuario en el input
-def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadas_test.csv',name2 = 'Bases_de_datos_utilizadas\Accidentes_test.csv'):
+def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadascandelariafinal.csv',name2 = 'Bases_de_datos_utilizadas\Accidentes_test.csv'):
     graph_1 = []
     vertices = []
     vertices1 = []
