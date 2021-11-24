@@ -1,14 +1,10 @@
 import pandas as pd
 from igraph import *
-from cython import *
 from math import *
 from datetime import *
-#Lo primero serÃ¡ tener las coordenadas y sacar la distancia entre todos de uno a mucho con distancias en R2
 
-#Eliminar las que tengan distancias mayores a 300 mts pues una cuadra en promedio son 100 mts y las que atraviesen edificios no se como identificarlas para ponerles un numero enorme.
-#Tripleta nodo1,nodo2, formula distancia
 def distancia_r2(p1,p2): #p1 y p2 son nodos que tiene componente en x y en y donde p2 es mayor a p1
-    a = 100000*sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2)) #No importa que las long sean negativas pues
+    a = 100000*sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2)) #No importa que las long sean negativas
     if a <= 150 and a>50: #Limito la distancia a los que deben ser conexos
         print(a)
         return (p1,p2,a) # es una distancia en metros y ni a palo da negativo
@@ -44,7 +40,7 @@ def acc_between2nodes(p1,p2,dir_acc_2): #Recibe dos puntos conexos y queremos ve
     return num_acc
 
 #Toca pedir el alfa al usuario en el input
-def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadascandelariafinal.csv',name2 = 'Bases_de_datos_utilizadas\Accidentes_test.csv'):
+def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadas_test.csv',name2 = 'Bases_de_datos_utilizadas\Accidentes_test.csv'):
     graph_1 = []
     vertices = []
     vertices1 = []
@@ -59,7 +55,7 @@ def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadascandelar
     df2 = pd.read_csv(name2)
     dir_acc = df2.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
     dir_acc = dir_acc[1:]
-#-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #    print('CYTHON saving tha day') PENDIENTE PASAR ESTE CODE A cython
     t1 = datetime.now()
     for i in coord2:
@@ -71,7 +67,7 @@ def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadascandelar
     t2 = datetime.now()-t1
     print('Time of execution')
     print(t2)
-#-----------------------------------------------------------------------------CYTHON-------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     #graph_1 = [ distancia_r2(i,j) for i in coord for j in coord if i!=j and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j)[2] != 0]
     print('YASSSSS YA TERMINE EL GRAFO CON PESOS DE DISTANCIA SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
     print(graph_1)
@@ -86,48 +82,37 @@ def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadascandelar
     return pond_distance_graph,vertices
 
 #----------------Dijkstra--------------------------------------------------------------------------------------------
-def get_weight_from_graph(v1,v2,graph):
-    vertices_conexos = [(i[0],i[1]) for i in graph if (i[0],i[1]) not in vertices_conexos and (i[1],i[0]) not in vertices_conexos] #Saco las aristas sin peso
-    w = float('inf') #Pues la arista entre esos dos no existe
-    if (v1,v2) in vertices_conexos:
-        w = [j[2] for j in graph if v1 == j[0] and v2 == j[1] ] #Permito el opuesto pues no me importa la direccion solo el peso
-    elif (v2,v1) in vertices_conexos:
-        w = [j[2] for j in graph if v2 == j[0] and v1 == j[1] ] #Permito el opuesto pues no me importa la direccion solo el peso
-    return w
+def get_weight_from_list(G,v1,v2):
+    try:
+        return G.es[G.get_eid(v1, v2)]["weight"]
+    except:
+        return float('inf')
 
-def get_weight_from_list(v,L):
-    for i in L:
-        if v in i:
-            return i[1]
-
-def get_path(L,graph):
-    verts_path = [i[0] for i in L]
-    vertices_conexos = [(i[0],i[1]) for i in graph if (i[0],i[1]) not in vertices_conexos and (i[1],i[0]) not in vertices_conexos] #Saco las aristas sin peso
-    path = [verts_path[0]] #Pongo el inicial que es U
-    for v in verts_path[1:]:
-        if (path[-1],v) in vertices_conexos: #Es decir existe una aritsta entre estos dos #-1 Para tener siempre el ultimo pues debo seguir la conexidad
-            path.append(v)
-        elif (v,path[-1]) in vertices_conexos: #Pues tengo que considerar que esten en otro orden
-            path.append(v)
-    return path
-
+def get_get_path(L, pini, pfini, prreds=[]):
+    preds.append(L[pfini][1][-1])  #Busco el ultimo predecesor de z
+    if pini in preds:
+        return preds
+    return get_get_path(L, pini, preds[-1], preds) #Para que busque el predecesor del predecesor
 
 def dijkstra(graph,pini,pfin,vertices): #pini es u y pfini es z y recordar que los puntos son de dos componentes x y y
-    L = [(pini,0)] #Menos enredo haciendolo duplas
-    lista_costos_iniciales = [(i,float('inf')) for i in vertices if i not in L]
-    L.extend(lista_costos_iniciales)
-    lista_costos = [i[1] for i in L]
+    L = {i: [float('inf'), []] for i in vertices}
+    L[pini] = [0,[]] #El segundo componente luego del peso es el vertice predecesor
     S = [] #Lista de los revisados
     while pfin not in S:
-        #contador = lista_costos.index(min(lista_costos))
-        y = L[lista_costos.index(min(lista_costos))][0] #Vertice con el costo min asociado
-        if y not in S: #Nunca va a estar en S o eso espero
-            x = y #x que no pertenece a S y con L(X) minimo
-            S.append(x) #4b
+        vertices_not_in_S = {i: L[i][0]  for i in vertices if i not in S} #Verts que no estan en S
+        v_min_peso_actual = min(vertices_not_in_S, key=vertices_not_in_S.get) #Min peso relacionado a la llave
+        S.append(v_min_peso_actual) #Pues nunca va a estar
+        vertices_not_in_S.pop(v_min_peso_actual) #Eliminados el agregado
         #Paso 4c
-        for i in list(set(vertices)-set(S)): #Para todo vertice que no este en S
-            L.append((i,min(get_weight_from_list(i,L),get_weight_from_list(x,L)+get_weight_from_graph(x,i,graph))))
-    shortest_path = get_path(L,graph)
+        for i in vertices_not_in_S: #Para todo vertice que no este en S
+            c = get_weight_from_list(graph,v_min_peso_actual,i)
+            if vertices_not_in_S[i] < c + L[v_min_peso_actual][0]:
+                L[i] = [vertices_not_in_S[i],L[i][1]]
+            else:
+                L[i][1].append(v_min_peso_actual)
+                L[i] = [L[v_min_peso_actual][0]+c,L[i][1]]
+
+    shortest_path = get_get_path(L,pini,pfin)
     return shortest_path
 
 #-------------------------------------------GRAFO Y CSV------------------------------------------------------
@@ -143,20 +128,20 @@ def import_graph(name='graph.csv'):#A partir de un csv crea el grafo falta poner
 
 #-------------------------------------------GRAFO Y CSV------------------------------------------------------
 
-def main(): #estooooo es solo  para pruebas luego hacemos un bien normal y chimbita
+def main():
     vertices = []
     t = []
     tp = []
     t,vertices = gen_graph()
     print(t)
-    tp = [(str(i[0]),str(i[1]),i[2]) for i in t] #Permite el ploteo y talvez deberia ser el que se vaya para el dijkstra
+    tp = [(str(i[0]),str(i[1]),i[2]) for i in t] #Permite el ploteo y talvez deberia ser el que se vaya para el dijkstra ]
+    g = Graph.TupleList(tp, weights=True)
     #Esto devuelve tp a t [(float(i) for i in j.split(',')) for j in g.vs["name"]] pero toca ponerle los pesos
     pini = [-74.0699766, 4.6672853]
     pfin = [-74.0709072, 4.6680027]
-    a = dijkstra(t,pini,pfin,vertices)
-    print("El camino mas corto entre los puntos dados es: "+str(a))
-    #graph2csv(t) # PARA GUARDARLO Y QUE SEA FACIL DE MOSTRAR EN LA EXPOSICION
-    g = Graph.TupleList(tp, weights=True)
+    print('---------------------------------------------------------------------------')
+    print(vertices)
+    a = dijkstra(g,str(pini),str(pfin),[str(i) for i in vertices])
     g.vs["label"] = g.vs["name"]
     g.es["label"] = g.es["weight"]
 
