@@ -56,7 +56,6 @@ def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadas_test.cs
     dir_acc = df2.values.tolist() #Lista de listas donde cada lista es de dos elementos la coordenada en x y la de y
     dir_acc = dir_acc[1:]
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#    print('CYTHON saving tha day') PENDIENTE PASAR ESTE CODE A cython
     t1 = datetime.now()
     for i in coord2:
         for j in coord2:
@@ -68,11 +67,8 @@ def gen_graph(alfa = 0.05,name1 = 'Bases_de_datos_utilizadas\coordenadas_test.cs
     print('Time of execution')
     print(t2)
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    #graph_1 = [ distancia_r2(i,j) for i in coord for j in coord if i!=j and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j) not in graph_1 and distancia_r2(i,j)[2] != 0]
-    print('YASSSSS YA TERMINE EL GRAFO CON PESOS DE DISTANCIA SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS')
     print(graph_1)
-    #Solo ingresan los que tiene una distancia menor o igual a 300mts si es mayor pues se le pone un 0 y no entra al grafo
-    #short_distances_graph = [(m[0],m[1],m[2]) for m in graph if m[2]<=300] #Reduzco distancias a solo 300mts como max
+    #Solo ingresan los que tiene una distancia menor o igual a 150mts si es mayor pues se le pone un 0 y no entra al grafo
     pond_distance_graph = [(h[0],h[1],pond_distance(h[2],acc_between2nodes(h[0],h[1],dir_acc),alfa)) for h in graph_1]#Si se como modificar el peso de cada vvertices me ahorro esta linea
     #Este es el grafo que voy a retornar pues ya tiene las distancias ponderadas y la conexidad, lo unico seria borrar las aristas raras pero pos por ahora meh
     vertices1 = [i[0] for i in pond_distance_graph if i[0] not in vertices1]
